@@ -2,10 +2,13 @@
   "name": "electron-webpack-quick-start",
   "version": "0.0.0",
   "license": "MIT",
+  "author": {
+    "name": "Test person"
+  },
   "scripts": {
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
-    "dist": "yarn compile && electron-builder",
+    "dist": "yarn compile && electron-builder --win --arm64",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
   "dependencies": {
@@ -14,7 +17,16 @@
   "devDependencies": {
     "electron": "8.2.0",
     "electron-builder": "^22.4.1",
+    "electron-builder-squirrel-windows": "^22.6.0",
     "electron-webpack": "^2.8.2",
     "webpack": "~4.42.1"
+  },
+  "build": {
+    "win": {
+      "target": "squirrel"
+    },
+    "squirrelWindows": {
+      "iconUrl": "https://raw.githubusercontent.com/desktop/desktop/development/app/static/logos/icon-logo.ico"
+    }
   }
 }
